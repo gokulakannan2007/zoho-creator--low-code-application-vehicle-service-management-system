@@ -1,0 +1,3724 @@
+/*
+ * Author       : gokulakannan.s.2024.cse_r857
+ * Generated on : 06-Nov-2026 21:40:47
+ * Version      : 1.0
+ */
+ application "Vehicle Service Management System"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "America/Los_Angeles"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form customer_details
+		{
+			displayname = "Customer Details"
+			success message = "Customer Details Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			customer_name
+			(
+    			type = name
+				displayname = "Customer Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			phone_number
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			email
+			(
+    			type = email
+				displayname = "Email"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			address
+			(
+    			type = address
+				displayname = "Address"
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+	     			 visibility = false
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+	     			 visibility = false
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+	     			 visibility = false
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+	     			 visibility = false
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+	     			 visibility = false
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "Latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "Longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			customer_type
+			(
+				type = radiobuttons
+				displayname = "Customer Type"
+				values = {"New","Regular"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			registration_date
+			(
+    			type = date
+				displayname = "Registration Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			customer_code
+			(
+    			type = text
+				displayname = "Customer Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form mechanic_details
+		{
+			displayname = "Mechanic Details"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			mechanic_name
+			(
+    			type = name
+				displayname = "Mechanic Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			phone_number
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			specialization
+			(
+				type = picklist
+				displayname = "Specialization"
+				values = {"General Service","Electrical","Brakes","Engine"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			experience_years
+			(
+				type = number
+				displayname = "Experience Years"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			availability_status
+			(
+				type = picklist
+				displayname = "Availability Status"
+				values = {"On Leave","Busy","Available"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			assigned_booking
+			(
+				type = picklist	
+				displayname = "Assigned Booking"
+				values  = service_booking.ID
+    			displayformat = [booking_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			mechanic_code
+			(
+    			type = text
+				displayname = "Mechanic Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			hourly_rate
+			(
+				displayname = "Hourly Rate"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			license_number
+			(
+    			type = text
+				displayname = "License Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form service_billing
+		{
+			displayname = "Service Billing"
+			success message = "Service Billing Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			booking
+			(
+				type = picklist	
+				displayname = "Booking"
+				values  = service_booking.ID
+    			displayformat = [booking_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			customer
+			(
+				type = picklist	
+				displayname = "Customer"
+				values  = customer_details.ID
+    			displayformat = [customer_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			labor_charges
+			(
+				displayname = "Labor Charges"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			parts_charges
+			(
+				displayname = "Parts Charges"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			tax_amount
+			(
+				displayname = "Tax Amount"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			discount
+			(
+				displayname = "Discount"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			grand_total
+			(
+				displayname = "Grand Total"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			payment_method
+			(
+				type = picklist
+				displayname = "Payment Method"
+				values = {"Bank Transfer","Cash","UPI","Card"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			payment_status
+			(
+				type = picklist
+				displayname = "Payment Status"
+				values = {"Paid","Pending","Partially Paid"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			payment_date
+			(
+    			type = date
+				displayname = "Payment Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			bill_code
+			(
+    			type = text
+				displayname = "Bill Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			invoice_number
+			(
+    			type = text
+				displayname = "Invoice Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form service_booking
+		{
+			displayname = "Service Booking"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			customer
+			(
+				type = picklist	
+				displayname = "Customer"
+				values  = customer_details.ID
+    			displayformat = [customer_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			vehicle
+			(
+				type = picklist	
+				displayname = "Vehicle"
+				values  = vehicle_details.ID
+    			displayformat = [vehicle_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			service_type
+			(
+				type = picklist
+				displayname = "Service Type"
+				values = {"Oil Change","General Service","Repair","Engine Service","Brake Service"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			booking_date
+			(
+    			type = date
+				displayname = "Booking Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			preferred_service_date
+			(
+    			type = date
+				displayname = "Preferred Service Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			problem_description
+			(
+    			type = textarea
+				displayname = "Problem Description"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			estimated_cost
+			(
+				displayname = "Estimated Cost"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			approval_status
+			(
+				type = picklist
+				displayname = "Approval Status"
+				values = {"Approved","Rejected","Pending"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			approval_remarks
+			(
+    			type = textarea
+				displayname = "Approval Remarks"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			booking_status
+			(
+				type = picklist
+				displayname = "Booking Status"
+				values = {"Booked","Completed","In Progress","Cancelled"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			booking_code
+			(
+    			type = text
+				displayname = "Booking Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			priority
+			(
+				type = picklist
+				displayname = "Priority"
+				values = {"High","Low","Medium"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Booking Created","Pending Approval","Booking Draft","Approved","Rejected","Scheduled","Booking Closed","Service In Progress","Rescheduled","Cancelled","Service Completed","On Hold","Pending Final Approval","Service Closed"}
+			}
+		}
+		form service_record
+		{
+			displayname = "Service Record"
+			success message = "Service Record Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			booking
+			(
+				type = picklist	
+				displayname = "Booking"
+				values  = service_booking.ID
+    			displayformat = [booking_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			mechanic
+			(
+				type = picklist	
+				displayname = "Mechanic"
+				values  = mechanic_details.ID
+    			displayformat = [mechanic_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			service_start_date
+			(
+    			type = date
+				displayname = "Service Start Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			service_completion_date
+			(
+    			type = date
+				displayname = "Service Completion Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			work_description
+			(
+    			type = textarea
+				displayname = "Work Description"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			labor_cost
+			(
+				displayname = "Labor Cost"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			parts_cost
+			(
+				displayname = "Parts Cost"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			total_service_cost
+			(
+				displayname = "Total Service Cost"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			service_status
+			(
+				type = picklist
+				displayname = "Service Status"
+				values = {"Scheduled","Completed","In Progress"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			record_code
+			(
+    			type = text
+				displayname = "Record Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Service Record Created","Service Scheduled","Service Cancelled","Service In Progress","Service Rescheduled","Service Awaiting Parts","Service Awaiting Approval","Service Completed","Service On Hold","Service Billing Pending","Service Reopened","Service Invoiced","Service Paid","Service Overdue","Service Closed"}
+			}
+		}
+		form spare_parts_inventory
+		{
+			displayname = "Spare Parts Inventory"
+			success message = "Parts Inventory Spared Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			part_name
+			(
+    			type = text
+				displayname = "Part Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			part_code
+			(
+    			type = text
+				displayname = "Part Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			quantity_available
+			(
+				type = number
+				displayname = "Quantity Available"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			minimum_stock_level
+			(
+				type = number
+				displayname = "Minimum Stock Level"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			unit_price
+			(
+				displayname = "Unit Price"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			supplier_name
+			(
+    			type = text
+				displayname = "Supplier Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			stock_status
+			(
+				type = picklist
+				displayname = "Stock Status"
+				values = {"Out of Stock","Low Stock","In Stock"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			part_code_unique
+			(
+    			type = text
+				displayname = "Part Code Unique"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			category
+			(
+    			type = text
+				displayname = "Category"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			supplier_contact
+			(
+    			type = phonenumber
+				displayname = "Supplier Contact"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form vehicle_details
+		{
+			displayname = "Vehicle Details"
+			success message = "Vehicle Details Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			customer
+			(
+				type = picklist	
+				displayname = "Customer"
+				values  = customer_details.ID
+    			displayformat = [customer_code]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			vehicle_number
+			(
+    			type = text
+				displayname = "Vehicle Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			brand
+			(
+    			type = text
+				displayname = "Brand"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			model
+			(
+    			type = text
+				displayname = "Model"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			vehicle_type
+			(
+				type = picklist
+				displayname = "Vehicle Type"
+				values = {"Car","SUV","Bike","Other"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			fuel_type
+			(
+				type = picklist
+				displayname = "Fuel Type"
+				values = {"Electric","Hybrid","Petrol","Diesel"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			manufacturing_year
+			(
+				type = number
+				displayname = "Manufacturing Year"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			last_service_date
+			(
+    			type = date
+				displayname = "Last Service Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			vehicle_code
+			(
+    			type = text
+				displayname = "Vehicle Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			color
+			(
+    			type = text
+				displayname = "Color"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		list service_booking_Report
+		{
+			displayName = "Service Booking Report"
+			show all rows from service_booking    
+			(
+				customer as "Customer"
+				vehicle as "Vehicle"
+				service_type as "Service Type"
+				booking_date as "Booking Date"
+				preferred_service_date as "Preferred Service Date"
+				problem_description as "Problem Description"
+				estimated_cost as "Estimated Cost"
+				(
+					display = total,average,min,max	
+				)
+				approval_status as "Approval Status"
+				approval_remarks as "Approval Remarks"
+				booking_status as "Booking Status"
+				booking_code as "Booking Code"
+				priority as "Priority"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (service_type == "Brake Service")
+				fields = [service_type]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (service_type == "Engine Service")
+				fields = [service_type]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (service_type == "Oil Change")
+				fields = [service_type]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+				"New Formatting4"
+				{
+				condition = (service_type == "Repair")
+				fields = [service_type]
+				format = "color:#ffffff;background-color:#3598db;"
+				}
+			)
+		}
+		kanban service_booking_by_service_type
+		{
+			displayName = "Service Types"
+			show all rows from service_booking    
+			(
+				customer as "Customer"
+				vehicle as "Vehicle"
+				service_type as "Service Type"
+				booking_date as "Booking Date"
+				preferred_service_date as "Preferred Service Date"
+				problem_description as "Problem Description"
+				estimated_cost as "Estimated Cost"
+				(
+					display = total,average,min,max	
+				)
+				approval_status as "Approval Status"
+				approval_remarks as "Approval Remarks"
+				booking_status as "Booking Status"
+				booking_code as "Booking Code"
+				priority as "Priority"
+			)
+			options
+			(
+	 			display field = service_type
+	 		)
+		}
+		list mechanic_details_Report
+		{
+			displayName = "Mechanic Details Report"
+			show all rows from mechanic_details    
+			(
+				mechanic_name  as "Mechanic Name"
+				phone_number as "Phone Number"
+				specialization as "Specialization"
+				experience_years as "Experience Years"
+				availability_status as "Availability Status"
+				assigned_booking as "Assigned Booking"
+				mechanic_code as "Mechanic Code"
+				hourly_rate as "Hourly Rate"
+				(
+					display = total,average,min,max	
+				)
+				license_number as "License Number"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (specialization == "Brakes")
+				fields = [specialization]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (specialization == "Electrical")
+				fields = [specialization]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (specialization == "Engine")
+				fields = [specialization]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+				"New Formatting4"
+				{
+				condition = (specialization == "General Service")
+				fields = [specialization]
+				format = "color:#ffffff;background-color:#3598db;"
+				}
+			)
+		}
+		kanban mechanic_details_by_specialization
+		{
+			displayName = "Specializations"
+			show all rows from mechanic_details    
+			(
+				mechanic_name  as "Mechanic Name"
+				phone_number as "Phone Number"
+				specialization as "Specialization"
+				experience_years as "Experience Years"
+				availability_status as "Availability Status"
+				assigned_booking as "Assigned Booking"
+				mechanic_code as "Mechanic Code"
+				hourly_rate as "Hourly Rate"
+				(
+					display = total,average,min,max	
+				)
+				license_number as "License Number"
+			)
+			options
+			(
+	 			display field = specialization
+	 		)
+		}
+		list service_record_Report
+		{
+			displayName = "All Service Records"
+			show all rows from service_record    
+			(
+				booking as "Booking"
+				mechanic as "Mechanic"
+				service_start_date as "Service Start Date"
+				service_completion_date as "Service Completion Date"
+				work_description as "Work Description"
+				labor_cost as "Labor Cost"
+				(
+					display = total,average,min,max	
+				)
+				parts_cost as "Parts Cost"
+				(
+					display = total,average,min,max	
+				)
+				total_service_cost as "Total Service Cost"
+				(
+					display = total,average,min,max	
+				)
+				service_status as "Service Status"
+				record_code as "Record Code"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (service_status == "Completed")
+				fields = [service_status]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (service_status == "In Progress")
+				fields = [service_status]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (service_status == "Scheduled")
+				fields = [service_status]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban service_record_by_service_status
+		{
+			displayName = "Service Statuses"
+			show all rows from service_record    
+			(
+				booking as "Booking"
+				mechanic as "Mechanic"
+				service_start_date as "Service Start Date"
+				service_completion_date as "Service Completion Date"
+				work_description as "Work Description"
+				labor_cost as "Labor Cost"
+				(
+					display = total,average,min,max	
+				)
+				parts_cost as "Parts Cost"
+				(
+					display = total,average,min,max	
+				)
+				total_service_cost as "Total Service Cost"
+				(
+					display = total,average,min,max	
+				)
+				service_status as "Service Status"
+				record_code as "Record Code"
+			)
+			options
+			(
+	 			display field = service_status
+	 		)
+		}
+		list customer_details_Report
+		{
+			displayName = "All Customer Details"
+			show all rows from customer_details    
+			(
+				customer_name  as "Customer Name"
+				phone_number as "Phone Number"
+				email as "Email"
+				address  as "Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				customer_type as "Customer Type"
+				registration_date as "Registration Date"
+				customer_code as "Customer Code"
+			)
+		}
+		list spare_parts_inventory_Report
+		{
+			displayName = "All Parts Inventories"
+			show all rows from spare_parts_inventory    
+			(
+				part_name as "Part Name"
+				part_code as "Part Code"
+				quantity_available as "Quantity Available"
+				minimum_stock_level as "Minimum Stock Level"
+				unit_price as "Unit Price"
+				(
+					display = total,average,min,max	
+				)
+				supplier_name as "Supplier Name"
+				stock_status as "Stock Status"
+				part_code_unique as "Part Code Unique"
+				category as "Category"
+				supplier_contact as "Supplier Contact"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (stock_status == "In Stock")
+				fields = [stock_status]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (stock_status == "Low Stock")
+				fields = [stock_status]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (stock_status == "Out of Stock")
+				fields = [stock_status]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban spare_parts_inventory_by_stock_status
+		{
+			displayName = "Stock Statuses"
+			show all rows from spare_parts_inventory    
+			(
+				part_name as "Part Name"
+				part_code as "Part Code"
+				quantity_available as "Quantity Available"
+				minimum_stock_level as "Minimum Stock Level"
+				unit_price as "Unit Price"
+				(
+					display = total,average,min,max	
+				)
+				supplier_name as "Supplier Name"
+				stock_status as "Stock Status"
+				part_code_unique as "Part Code Unique"
+				category as "Category"
+				supplier_contact as "Supplier Contact"
+			)
+			options
+			(
+	 			display field = stock_status
+	 		)
+		}
+		list vehicle_details_Report
+		{
+			displayName = "All Vehicle Details"
+			show all rows from vehicle_details    
+			(
+				customer as "Customer"
+				vehicle_number as "Vehicle Number"
+				brand as "Brand"
+				model as "Model"
+				vehicle_type as "Vehicle Type"
+				fuel_type as "Fuel Type"
+				manufacturing_year as "Manufacturing Year"
+				last_service_date as "Last Service Date"
+				vehicle_code as "Vehicle Code"
+				color as "Color"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (vehicle_type == "Bike")
+				fields = [vehicle_type]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (vehicle_type == "Car")
+				fields = [vehicle_type]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (vehicle_type == "Other")
+				fields = [vehicle_type]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+				"New Formatting4"
+				{
+				condition = (vehicle_type == "SUV")
+				fields = [vehicle_type]
+				format = "color:#ffffff;background-color:#3598db;"
+				}
+			)
+		}
+		kanban vehicle_details_by_vehicle_type
+		{
+			displayName = "Vehicle Types"
+			show all rows from vehicle_details    
+			(
+				customer as "Customer"
+				vehicle_number as "Vehicle Number"
+				brand as "Brand"
+				model as "Model"
+				vehicle_type as "Vehicle Type"
+				fuel_type as "Fuel Type"
+				manufacturing_year as "Manufacturing Year"
+				last_service_date as "Last Service Date"
+				vehicle_code as "Vehicle Code"
+				color as "Color"
+			)
+			options
+			(
+	 			display field = vehicle_type
+	 		)
+		}
+		list service_billing_Report
+		{
+			displayName = "All Service Billings"
+			show all rows from service_billing    
+			(
+				booking as "Booking"
+				customer as "Customer"
+				labor_charges as "Labor Charges"
+				(
+					display = total,average,min,max	
+				)
+				parts_charges as "Parts Charges"
+				(
+					display = total,average,min,max	
+				)
+				tax_amount as "Tax Amount"
+				(
+					display = total,average,min,max	
+				)
+				discount as "Discount"
+				(
+					display = total,average,min,max	
+				)
+				grand_total as "Grand Total"
+				(
+					display = total,average,min,max	
+				)
+				payment_method as "Payment Method"
+				payment_status as "Payment Status"
+				payment_date as "Payment Date"
+				bill_code as "Bill Code"
+				invoice_number as "Invoice Number"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (payment_method == "Bank Transfer")
+				fields = [payment_method]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (payment_method == "Card")
+				fields = [payment_method]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (payment_method == "UPI")
+				fields = [payment_method]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban service_billing_by_payment_method
+		{
+			displayName = "Payment Methods"
+			show all rows from service_billing    
+			(
+				booking as "Booking"
+				customer as "Customer"
+				labor_charges as "Labor Charges"
+				(
+					display = total,average,min,max	
+				)
+				parts_charges as "Parts Charges"
+				(
+					display = total,average,min,max	
+				)
+				tax_amount as "Tax Amount"
+				(
+					display = total,average,min,max	
+				)
+				discount as "Discount"
+				(
+					display = total,average,min,max	
+				)
+				grand_total as "Grand Total"
+				(
+					display = total,average,min,max	
+				)
+				payment_method as "Payment Method"
+				payment_status as "Payment Status"
+				payment_date as "Payment Date"
+				bill_code as "Bill Code"
+				invoice_number as "Invoice Number"
+			)
+			options
+			(
+	 			display field = payment_method
+	 		)
+		}
+	}
+	pages
+	{
+		page DashBoard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<row>\n\t<column\n   \t\t width='75%'\n   \t>\n\t<row>\n\t<column\n   \t\t width='26%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#5A3D9B'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '0px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\n\tcolor = '#FFFFFF'\n\tbgColor = '#9B69FB'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'shopping-cash-register'\n\tsize = '22px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '12px'\n\tcolor = '#FFFFFF'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.service_booking.estimated_cost.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '5px'\n\tcolor = '#FFFFFF'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total Costs'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='26%'\n   \t>\n\t<panel elementName='Panel 2'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#734AD0'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '0px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#9B69FB'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'business-percentage-39'\n\tsize = '22px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '12px'\n\tcolor = '#FFFFFF'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.mechanic_details.hourly_rate.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '5px'\n\tcolor = '#E7E7E7'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total Hourly Rate'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='24%'\n   \t>\n\t<panel elementName='Panel 3'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#9366F9'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '0px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#AF8CFF'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'shopping-cash-register'\n\tsize = '22px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '12px'\n\tcolor = '#FFFFFF'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.service_record.labor_cost.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '5px'\n\tcolor = '#FFFFFF'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total Labor Costs'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='24%'\n   \t>\n\t<panel elementName='Panel 4'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#734AD0'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpaddingTop = '0px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '0px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#9B69FB'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'shopping-cash-register'\n\tsize = '22px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '12px'\n\tcolor = '#FFFFFF'\n\tsize = '24px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.service_record.parts_cost.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginTop = '5px'\n\tcolor = '#FFFFFF'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total Parts Costs'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Grouped_Panel 1'\n \n\t\n\ttitle = 'Priority'\n\t\n\t\ttitleSize = '15px'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '10px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '0px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '17px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '24%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#1ABE75'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'clothes-shoe-woman'\n\tsize = '20px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tcolor = '#3F3F3F'\n\tsize = '22px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'priority == &quot;High&quot;'\n\t  value = 'thisapp.service_booking.priority.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '0px' \n\tmarginTop = '3px'\n\tcolor = '#909090'\n\tsize = '14px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'High'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '17px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '17px'\n\tpaddingBottom = '17px'\n\n\t\twidth = '24%'\n\t\thAlign = 'center'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#E2335C'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'envir-level'\n\tsize = '20px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tcolor = '#3F3F3F'\n\tsize = '22px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'priority == &quot;Low&quot;'\n\t  value = 'thisapp.service_booking.priority.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '0px' \n\tmarginTop = '3px'\n\tcolor = '#909090'\n\tsize = '14px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Low'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '17px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '17px'\n\tpaddingBottom = '17px'\n\n\t\twidth = '25%'\n\t\thAlign = 'center'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#1678F9'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'design-shapes'\n\tsize = '22px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tcolor = '#3F3F3F'\n\tsize = '22px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'priority == &quot;Medium&quot;'\n\t  value = 'thisapp.service_booking.priority.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '0px' \n\tmarginTop = '3px'\n\tcolor = '#909090'\n\tsize = '14px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Medium'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '17px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '17px'\n\tpaddingBottom = '17px'\n\n\t\twidth = '27%'\n\t\thAlign = 'center'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = '#F6BC2B'\n\twidth = '52px'\n\theight = '52px'\n\ttype = 'icon'\n\tvalue = 'travel-church'\n\tsize = '22px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tcolor = '#3F3F3F'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.service_booking.priority.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '0px' \n\tmarginTop = '3px'\n\tcolor = '#909090'\n\tsize = '14px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Total'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</column><column\n   \t\t width='25%'\n   \t>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel_Button 1'\n \n\t\n\ttitle = 'Quick Links'\n\t\n\t\ttitleSize = '15px'\n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#8A3DFB'\n\n\t\twidth = '2%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '10px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '10px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '98%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginRight = '10px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#2C0D4A'\n\tbgColor = '#F4F0FF'\n\twidth = '36px'\n\theight = '36px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '18px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'service_booking'\n\t\ttarget = 'new-window'\n\n\tcolor = '#6733AB'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Add New Service Booking'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel_Button 2'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#8A3DFB'\n\n\t\twidth = '2%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '10px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '10px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '98%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginRight = '10px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#2C0D4A'\n\tbgColor = '#F4F0FF'\n\twidth = '36px'\n\theight = '36px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '18px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'mechanic_details'\n\t\ttarget = 'new-window'\n\n\tcolor = '#6733AB'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Add New Mechanic Details'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel_Button 3'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#8A3DFB'\n\n\t\twidth = '2%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '10px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '10px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '98%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginRight = '10px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#2C0D4A'\n\tbgColor = '#F4F0FF'\n\twidth = '36px'\n\theight = '36px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '18px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'service_record'\n\t\ttarget = 'new-window'\n\n\tcolor = '#6733AB'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Add New Service Record'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel_Button 4'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#8A3DFB'\n\n\t\twidth = '2%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '10px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '10px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '98%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginRight = '10px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#2C0D4A'\n\tbgColor = '#F4F0FF'\n\twidth = '36px'\n\theight = '36px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '18px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'customer_details'\n\t\ttarget = 'new-window'\n\n\tcolor = '#6733AB'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Add New Customer Details'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart 1'\n\n\t\n\ttitle = 'Parts Charges by Tax Amount'\n\t\n\t\ttitleSize = '15px'\n\ttype = 'Scatter'\n\txtitle = 'Parts Charges'\n\tytitle = 'Tax Amount'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'none'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'service_billing'\n\txfield = 'parts_charges'\n\tyfields = 'value:tax_amount'\n\tgroupBy = 'booking'\n\t\tDelugeCriteria = 'parts_charges is not null'\n/>\n\n</column><column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart 2'\n\n\t\n\ttitle = 'Minimum Stock Level by Quantity Available'\n\t\n\t\ttitleSize = '15px'\n\ttype = 'Scatter'\n\txtitle = 'Minimum Stock Level'\n\tytitle = 'Quantity Available'\n\tbgColor = '#FFFFFF'\n\ttheme = '#198391'\n\tlegendPos = 'none'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'spare_parts_inventory'\n\txfield = 'minimum_stock_level'\n\tyfields = 'value:quantity_available'\n\tgroupBy = 'part_name'\n\t\tDelugeCriteria = 'minimum_stock_level is not null'\n/>\n\n</column>\n</row>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'service_booking_Report'\n\t\n\t\tiszreport = 'false'\n\t\t\t\t\tzc_AddRec = 'false'\n\t\t\t\t\tzc_EditRec = 'false'\n\t\t\t\t\tzc_Print = 'false'\n\t\t\t\t\tzc_Export = 'false'\n\t\t\t\t\tzc_DelRec = 'false'\n\t\t\t\t\tzc_DuplRec = 'false'\n\t\t\t\t\tzc_Search = 'false'\n\t\t\t\t\tzc_EditBulkRec = 'false'\n\t\t\t\t\tzc_BulkDelete = 'false'\n\t\t\t\t\tzc_BulkDuplicate = 'false'\n\theightType = 'custom'\n\theightValue = '500'\n/>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			notify_customer_on_approval as "Notify Customer on Approval"
+			{
+				type =  form
+				form = service_booking
+
+				record event = on edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Fetch the service booking record that was just approved
+										serviceBookingRecord = service_booking[ID == input.ID];
+										// Validate that the booking exists and has a customer
+										if(serviceBookingRecord.customer.isNull())
+										{
+											info "No customer associated with this booking";
+										}
+										else
+										{
+											// Get customer details from the lookup
+											customerRecord = customer_details[ID == serviceBookingRecord.customer];
+											// Validate customer email exists
+											if(customerRecord.email.isNull())
+											{
+												info "Customer email is not available";
+											}
+											else
+											{
+												// Get booking details
+												bookingCode = serviceBookingRecord.booking_code;
+												bookingStatus = serviceBookingRecord.booking_status;
+												bookingDate = serviceBookingRecord.booking_date;
+												// Construct email message
+												emailSubject = "Service Booking Approved - " + bookingCode;
+												emailMessage = "Dear " + customerRecord.customer_name.first_name + ",\n\n";
+												emailMessage = emailMessage.concat("Your service booking has been approved.\n");
+												emailMessage = emailMessage.concat("Booking Code: " + bookingCode + "\n");
+												emailMessage = emailMessage.concat("Booking Date: " + bookingDate.toString() + "\n");
+												emailMessage = emailMessage.concat("Status: " + bookingStatus + "\n\n");
+												emailMessage = emailMessage.concat("Thank you for choosing our services.\n");
+												emailMessage = emailMessage.concat("Best regards,\nVehicle Service Management Team");
+												// Send email to customer
+												sendmail
+												[
+													from :zoho.loginuserid
+													to :customerRecord.email
+													subject :emailSubject
+													message :emailMessage
+													content type :Plain Text
+												]
+											}
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			low_stock_alert_reminder as "Low Stock Alert Reminder"
+			{
+				type =  schedule
+					status = inactive
+				start = "2024-05-26 15:53:12"
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						// Fetch spare parts with low stock (quantity_available <= minimum_stock_level)
+										lowStockParts = spare_parts_inventory[quantity_available <= minimum_stock_level];
+										// Check if there are any low stock items
+										if(lowStockParts.count() > 0)
+										{
+											// Build notification message
+											notificationMessage = "The following spare parts have low stock:\n\n";
+											for each  part in lowStockParts
+											{
+												notificationMessage = notificationMessage.concat(part.part_name + " - Available: " + part.quantity_available.toString() + " (Min: " + part.minimum_stock_level.toString() + ")\n");
+											}
+											// Send email notification to manager
+											sendmail
+											[
+												from :zoho.adminuserid
+												to :zoho.loginuserid
+												subject :"Daily Low Stock Alert - Spare Parts Inventory"
+												message :notificationMessage
+												content type :Plain Text
+											]
+										}
+					)
+					}
+				}
+			}
+		}
+
+
+		blueprint
+		{
+    			service_execution_workflow as "Service Execution Workflow"
+    			{
+        			type = Blueprint
+        			form = service_record
+        			start
+        			{
+            			start stage = "Service Record Created"
+        			}
+        			stages
+        			{
+           			"Service Record Created"
+           			{
+           			}
+           			"Service Scheduled"
+           			{
+           			}
+           			"Service Cancelled"
+           			{
+           			}
+           			"Service In Progress"
+           			{
+           			}
+           			"Service Rescheduled"
+           			{
+           			}
+           			"Service Awaiting Parts"
+           			{
+           			}
+           			"Service Awaiting Approval"
+           			{
+           			}
+           			"Service Completed"
+           			{
+           			}
+           			"Service On Hold"
+           			{
+           			}
+           			"Service Billing Pending"
+           			{
+           			}
+           			"Service Reopened"
+           			{
+           			}
+           			"Service Invoiced"
+           			{
+           			}
+           			"Service Paid"
+           			{
+           			}
+           			"Service Overdue"
+           			{
+           			}
+           			"Service Closed"
+           			{
+           			}
+        			}
+        			transitions
+        			{
+    				approve_work as "Approve Additional Work"
+    				{
+         				type = normal
+         				from stage = "Service Awaiting Approval"
+         				to stage = "Service In Progress"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_parts as "Cancel Due to Parts Unavailability"
+    				{
+         				type = normal
+         				from stage = "Service Awaiting Parts"
+         				to stage = "Service Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_service as "Cancel Service Record"
+    				{
+         				type = normal
+         				from stage = "Service Record Created"
+         				to stage = "Service Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				close_defect as "Close Defect Report"
+    				{
+         				type = normal
+         				from stage = "Service Reopened"
+         				to stage = "Service Completed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				close_outstanding as "Close with Outstanding Balance"
+    				{
+         				type = normal
+         				from stage = "Service Overdue"
+         				to stage = "Service Closed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				close_service as "Close Service Record"
+    				{
+         				type = normal
+         				from stage = "Service Paid"
+         				to stage = "Service Closed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				confirm_payment as "Confirm Payment"
+    				{
+         				type = normal
+         				from stage = "Service Invoiced"
+         				to stage = "Service Paid"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				confirm_reschedule as "Confirm New Date"
+    				{
+         				type = normal
+         				from stage = "Service Rescheduled"
+         				to stage = "Service Scheduled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				finalize_service as "Finalize Service"
+    				{
+         				type = normal
+         				from stage = "Service Completed"
+         				to stage = "Service Billing Pending"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				generate_invoice as "Generate Invoice"
+    				{
+         				type = normal
+         				from stage = "Service Billing Pending"
+         				to stage = "Service Invoiced"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				mark_complete as "Mark Service Complete"
+    				{
+         				type = normal
+         				from stage = "Service In Progress"
+         				to stage = "Service Completed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				mark_overdue as "Mark Payment Overdue"
+    				{
+         				type = normal
+         				from stage = "Service Invoiced"
+         				to stage = "Service Overdue"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				parts_received as "Parts Received"
+    				{
+         				type = normal
+         				from stage = "Service Awaiting Parts"
+         				to stage = "Service In Progress"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				pause_service as "Pause Service"
+    				{
+         				type = normal
+         				from stage = "Service In Progress"
+         				to stage = "Service On Hold"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				process_late_payment as "Process Late Payment"
+    				{
+         				type = normal
+         				from stage = "Service Overdue"
+         				to stage = "Service Paid"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				reject_work as "Reject Additional Work"
+    				{
+         				type = normal
+         				from stage = "Service Awaiting Approval"
+         				to stage = "Service In Progress"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				report_defect as "Report Defect"
+    				{
+         				type = normal
+         				from stage = "Service Completed"
+         				to stage = "Service Reopened"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				request_parts as "Request Parts"
+    				{
+         				type = normal
+         				from stage = "Service In Progress"
+         				to stage = "Service Awaiting Parts"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				reschedule_service as "Reschedule Service"
+    				{
+         				type = normal
+         				from stage = "Service Scheduled"
+         				to stage = "Service Rescheduled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				resume_repair as "Resume Repair"
+    				{
+         				type = normal
+         				from stage = "Service Reopened"
+         				to stage = "Service In Progress"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				resume_service as "Resume Service"
+    				{
+         				type = normal
+         				from stage = "Service On Hold"
+         				to stage = "Service In Progress"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				schedule_service as "Schedule Service"
+    				{
+         				type = normal
+         				from stage = "Service Record Created"
+         				to stage = "Service Scheduled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				start_service as "Start Service"
+    				{
+         				type = normal
+         				from stage = "Service Scheduled"
+         				to stage = "Service In Progress"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				submit_approval as "Submit Additional Work"
+    				{
+         				type = normal
+         				from stage = "Service In Progress"
+         				to stage = "Service Awaiting Approval"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				waive_charges as "Waive Charges"
+    				{
+         				type = normal
+         				from stage = "Service Billing Pending"
+         				to stage = "Service Completed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+        			}
+    			}
+		}
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form customer_details
+			{
+				label placement = left
+			}
+			form mechanic_details
+			{
+				label placement = left
+			}
+			form service_billing
+			{
+				label placement = left
+			}
+			form service_booking
+			{
+				label placement = left
+			}
+			form service_record
+			{
+				label placement = left
+			}
+			form spare_parts_inventory
+			{
+				label placement = left
+			}
+			form vehicle_details
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report service_booking_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								customer as "Customer"
+								vehicle as "Vehicle"
+								service_type as "Service Type"
+								booking_date as "Booking Date"
+								preferred_service_date as "Preferred Service Date"
+								problem_description as "Problem Description"
+								estimated_cost as "Estimated Cost"
+								approval_status as "Approval Status"
+								approval_remarks as "Approval Remarks"
+								booking_status as "Booking Status"
+								booking_code as "Booking Code"
+								priority as "Priority"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								customer as "Customer"
+								vehicle as "Vehicle"
+								service_type as "Service Type"
+								booking_date as "Booking Date"
+								preferred_service_date as "Preferred Service Date"
+								problem_description as "Problem Description"
+								estimated_cost as "Estimated Cost"
+								approval_status as "Approval Status"
+								approval_remarks as "Approval Remarks"
+								booking_status as "Booking Status"
+								booking_code as "Booking Code"
+								priority as "Priority"
+							)
+						)
+						datablock2
+						(
+		     				title = "Customer"
+		     				related field = customer
+							fields
+							(
+								customer_name as "Customer Name"
+								phone_number as "Phone Number"
+								email as "Email"
+								address as "Address"
+								customer_type as "Customer Type"
+								registration_date as "Registration Date"
+								customer_code as "Customer Code"
+							)
+						)
+						datablock3
+						(
+		     				title = "Vehicle"
+		     				related field = vehicle
+							fields
+							(
+								customer as "Customer"
+								vehicle_number as "Vehicle Number"
+								brand as "Brand"
+								model as "Model"
+								vehicle_type as "Vehicle Type"
+								fuel_type as "Fuel Type"
+								manufacturing_year as "Manufacturing Year"
+								last_service_date as "Last Service Date"
+								vehicle_code as "Vehicle Code"
+								color as "Color"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report service_booking_by_service_type
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								booking_code as "Booking Code"
+								customer as "Customer"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								customer as "Customer"
+								vehicle as "Vehicle"
+								service_type as "Service Type"
+								booking_date as "Booking Date"
+								preferred_service_date as "Preferred Service Date"
+								problem_description as "Problem Description"
+								estimated_cost as "Estimated Cost"
+								approval_status as "Approval Status"
+								approval_remarks as "Approval Remarks"
+								booking_status as "Booking Status"
+								booking_code as "Booking Code"
+								priority as "Priority"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report mechanic_details_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								mechanic_name as "Mechanic Name"
+								phone_number as "Phone Number"
+								specialization as "Specialization"
+								experience_years as "Experience Years"
+								availability_status as "Availability Status"
+								assigned_booking as "Assigned Booking"
+								mechanic_code as "Mechanic Code"
+								hourly_rate as "Hourly Rate"
+								license_number as "License Number"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								mechanic_name as "Mechanic Name"
+								phone_number as "Phone Number"
+								specialization as "Specialization"
+								experience_years as "Experience Years"
+								availability_status as "Availability Status"
+								assigned_booking as "Assigned Booking"
+								mechanic_code as "Mechanic Code"
+								hourly_rate as "Hourly Rate"
+								license_number as "License Number"
+							)
+						)
+						datablock2
+						(
+		     				title = "Assigned Booking"
+		     				related field = assigned_booking
+							fields
+							(
+								customer as "Customer"
+								vehicle as "Vehicle"
+								service_type as "Service Type"
+								booking_date as "Booking Date"
+								preferred_service_date as "Preferred Service Date"
+								problem_description as "Problem Description"
+								estimated_cost as "Estimated Cost"
+								approval_status as "Approval Status"
+								approval_remarks as "Approval Remarks"
+								booking_status as "Booking Status"
+								booking_code as "Booking Code"
+								priority as "Priority"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report mechanic_details_by_specialization
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								mechanic_name as "Mechanic Name"
+								mechanic_code as "Mechanic Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								mechanic_name as "Mechanic Name"
+								phone_number as "Phone Number"
+								specialization as "Specialization"
+								experience_years as "Experience Years"
+								availability_status as "Availability Status"
+								assigned_booking as "Assigned Booking"
+								mechanic_code as "Mechanic Code"
+								hourly_rate as "Hourly Rate"
+								license_number as "License Number"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report service_record_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								mechanic as "Mechanic"
+								service_start_date as "Service Start Date"
+								service_completion_date as "Service Completion Date"
+								work_description as "Work Description"
+								labor_cost as "Labor Cost"
+								parts_cost as "Parts Cost"
+								total_service_cost as "Total Service Cost"
+								service_status as "Service Status"
+								record_code as "Record Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								booking as "Booking"
+								mechanic as "Mechanic"
+								service_start_date as "Service Start Date"
+								service_completion_date as "Service Completion Date"
+								work_description as "Work Description"
+								labor_cost as "Labor Cost"
+								parts_cost as "Parts Cost"
+								total_service_cost as "Total Service Cost"
+								service_status as "Service Status"
+								record_code as "Record Code"
+							)
+						)
+						datablock2
+						(
+		     				title = "Booking"
+		     				related field = booking
+							fields
+							(
+								customer as "Customer"
+								vehicle as "Vehicle"
+								service_type as "Service Type"
+								booking_date as "Booking Date"
+								preferred_service_date as "Preferred Service Date"
+								problem_description as "Problem Description"
+								estimated_cost as "Estimated Cost"
+								approval_status as "Approval Status"
+								approval_remarks as "Approval Remarks"
+								booking_status as "Booking Status"
+								booking_code as "Booking Code"
+								priority as "Priority"
+							)
+						)
+						datablock3
+						(
+		     				title = "Mechanic"
+		     				related field = mechanic
+							fields
+							(
+								mechanic_name as "Mechanic Name"
+								phone_number as "Phone Number"
+								specialization as "Specialization"
+								experience_years as "Experience Years"
+								availability_status as "Availability Status"
+								assigned_booking as "Assigned Booking"
+								mechanic_code as "Mechanic Code"
+								hourly_rate as "Hourly Rate"
+								license_number as "License Number"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report service_record_by_service_status
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								record_code as "Record Code"
+								booking as "Booking"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								mechanic as "Mechanic"
+								service_start_date as "Service Start Date"
+								service_completion_date as "Service Completion Date"
+								work_description as "Work Description"
+								labor_cost as "Labor Cost"
+								parts_cost as "Parts Cost"
+								total_service_cost as "Total Service Cost"
+								service_status as "Service Status"
+								record_code as "Record Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report customer_details_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								customer_name as "Customer Name"
+								phone_number as "Phone Number"
+								email as "Email"
+								address as "Address"
+								customer_type as "Customer Type"
+								registration_date as "Registration Date"
+								customer_code as "Customer Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								customer_name as "Customer Name"
+								phone_number as "Phone Number"
+								email as "Email"
+								address as "Address"
+								customer_type as "Customer Type"
+								registration_date as "Registration Date"
+								customer_code as "Customer Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report spare_parts_inventory_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								part_name as "Part Name"
+								part_code as "Part Code"
+								quantity_available as "Quantity Available"
+								minimum_stock_level as "Minimum Stock Level"
+								unit_price as "Unit Price"
+								supplier_name as "Supplier Name"
+								stock_status as "Stock Status"
+								part_code_unique as "Part Code Unique"
+								category as "Category"
+								supplier_contact as "Supplier Contact"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								part_name as "Part Name"
+								part_code as "Part Code"
+								quantity_available as "Quantity Available"
+								minimum_stock_level as "Minimum Stock Level"
+								unit_price as "Unit Price"
+								supplier_name as "Supplier Name"
+								stock_status as "Stock Status"
+								part_code_unique as "Part Code Unique"
+								category as "Category"
+								supplier_contact as "Supplier Contact"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report spare_parts_inventory_by_stock_status
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								part_name as "Part Name"
+								part_code as "Part Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								part_name as "Part Name"
+								part_code as "Part Code"
+								quantity_available as "Quantity Available"
+								minimum_stock_level as "Minimum Stock Level"
+								unit_price as "Unit Price"
+								supplier_name as "Supplier Name"
+								stock_status as "Stock Status"
+								part_code_unique as "Part Code Unique"
+								category as "Category"
+								supplier_contact as "Supplier Contact"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report vehicle_details_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								customer as "Customer"
+								vehicle_number as "Vehicle Number"
+								brand as "Brand"
+								model as "Model"
+								vehicle_type as "Vehicle Type"
+								fuel_type as "Fuel Type"
+								manufacturing_year as "Manufacturing Year"
+								last_service_date as "Last Service Date"
+								vehicle_code as "Vehicle Code"
+								color as "Color"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								customer as "Customer"
+								vehicle_number as "Vehicle Number"
+								brand as "Brand"
+								model as "Model"
+								vehicle_type as "Vehicle Type"
+								fuel_type as "Fuel Type"
+								manufacturing_year as "Manufacturing Year"
+								last_service_date as "Last Service Date"
+								vehicle_code as "Vehicle Code"
+								color as "Color"
+							)
+						)
+						datablock2
+						(
+		     				title = "Customer"
+		     				related field = customer
+							fields
+							(
+								customer_name as "Customer Name"
+								phone_number as "Phone Number"
+								email as "Email"
+								address as "Address"
+								customer_type as "Customer Type"
+								registration_date as "Registration Date"
+								customer_code as "Customer Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report vehicle_details_by_vehicle_type
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								vehicle_number as "Vehicle Number"
+								brand as "Brand"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								customer as "Customer"
+								vehicle_number as "Vehicle Number"
+								brand as "Brand"
+								model as "Model"
+								vehicle_type as "Vehicle Type"
+								fuel_type as "Fuel Type"
+								manufacturing_year as "Manufacturing Year"
+								last_service_date as "Last Service Date"
+								vehicle_code as "Vehicle Code"
+								color as "Color"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report service_billing_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								customer as "Customer"
+								labor_charges as "Labor Charges"
+								parts_charges as "Parts Charges"
+								tax_amount as "Tax Amount"
+								discount as "Discount"
+								grand_total as "Grand Total"
+								payment_method as "Payment Method"
+								payment_status as "Payment Status"
+								payment_date as "Payment Date"
+								bill_code as "Bill Code"
+								invoice_number as "Invoice Number"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								booking as "Booking"
+								customer as "Customer"
+								labor_charges as "Labor Charges"
+								parts_charges as "Parts Charges"
+								tax_amount as "Tax Amount"
+								discount as "Discount"
+								grand_total as "Grand Total"
+								payment_method as "Payment Method"
+								payment_status as "Payment Status"
+								payment_date as "Payment Date"
+								bill_code as "Bill Code"
+								invoice_number as "Invoice Number"
+							)
+						)
+						datablock2
+						(
+		     				title = "Customer"
+		     				related field = customer
+							fields
+							(
+								customer_name as "Customer Name"
+								phone_number as "Phone Number"
+								email as "Email"
+								address as "Address"
+								customer_type as "Customer Type"
+								registration_date as "Registration Date"
+								customer_code as "Customer Code"
+							)
+						)
+						datablock3
+						(
+		     				title = "Booking"
+		     				related field = booking
+							fields
+							(
+								customer as "Customer"
+								vehicle as "Vehicle"
+								service_type as "Service Type"
+								booking_date as "Booking Date"
+								preferred_service_date as "Preferred Service Date"
+								problem_description as "Problem Description"
+								estimated_cost as "Estimated Cost"
+								approval_status as "Approval Status"
+								approval_remarks as "Approval Remarks"
+								booking_status as "Booking Status"
+								booking_code as "Booking Code"
+								priority as "Priority"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report service_billing_by_payment_method
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								bill_code as "Bill Code"
+								invoice_number as "Invoice Number"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								customer as "Customer"
+								labor_charges as "Labor Charges"
+								parts_charges as "Parts Charges"
+								tax_amount as "Tax Amount"
+								discount as "Discount"
+								grand_total as "Grand Total"
+								payment_method as "Payment Method"
+								payment_status as "Payment Status"
+								payment_date as "Payment Date"
+								bill_code as "Bill Code"
+								invoice_number as "Invoice Number"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Section_1
+				{
+					displayname = "Dashboard"
+					icon = "ui-1-dashboard-half"
+					page DashBoard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+				section Section_2
+				{
+					displayname = "Service Booking"
+					icon = "travel-church"
+					form  service_booking
+					{
+						icon = "ui-1-bold-add"
+					}
+					report service_booking_Report
+					{
+						icon = "travel-church"
+					}
+					report service_booking_by_service_type
+					{
+						icon = "travel-church"
+					}
+				}
+				section Section_3
+				{
+					displayname = "Mechanic Details"
+					icon = "users-2-contacts-44"
+					form  mechanic_details
+					{
+						icon = "ui-1-bold-add"
+					}
+					report mechanic_details_Report
+					{
+						icon = "users-2-contacts-44"
+					}
+					report mechanic_details_by_specialization
+					{
+						icon = "design-2-selection"
+					}
+				}
+				section Section_4
+				{
+					displayname = "Service Records"
+					icon = "health-notebook"
+					form  service_record
+					{
+						icon = "ui-1-bold-add"
+					}
+					report service_record_Report
+					{
+						icon = "travel-world"
+					}
+					report service_record_by_service_status
+					{
+						icon = "travel-church"
+					}
+				}
+				section Section_5
+				{
+					displayname = "Customer Details"
+					icon = "users-2-contacts-44"
+					form  customer_details
+					{
+						icon = "ui-1-bold-add"
+					}
+					report customer_details_Report
+					{
+						icon = "travel-world"
+					}
+				}
+				section Section_6
+				{
+					displayname = "Parts Inventories"
+					icon = "transportation-helicopter"
+					form  spare_parts_inventory
+					{
+						icon = "ui-1-bold-add"
+					}
+					report spare_parts_inventory_Report
+					{
+						icon = "travel-world"
+					}
+					report spare_parts_inventory_by_stock_status
+					{
+						icon = "shopping-stock"
+					}
+				}
+				section Section_7
+				{
+					displayname = "Vehicle Details"
+					icon = "transportation-car"
+					form  vehicle_details
+					{
+						icon = "ui-1-bold-add"
+					}
+					report vehicle_details_Report
+					{
+						icon = "travel-world"
+					}
+					report vehicle_details_by_vehicle_type
+					{
+						icon = "envir-car"
+					}
+				}
+				section Section_8
+				{
+					displayname = "Service Billings"
+					icon = "travel-church"
+					form  service_billing
+					{
+						icon = "ui-1-bold-add"
+					}
+					report service_billing_Report
+					{
+						icon = "travel-church"
+					}
+					report service_billing_by_payment_method
+					{
+						icon = "shopping-bitcoin"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = solid
+					show = {space,section,component}
+				}
+			}
+		}
+		customize
+		{
+			new theme = 11
+			font = "poppins"
+			color options
+			{
+				color = "5"
+			}
+			logo
+			{
+				preference = "none"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form customer_details
+			{
+				label placement = auto
+			}
+			form mechanic_details
+			{
+				label placement = auto
+			}
+			form service_billing
+			{
+				label placement = auto
+			}
+			form service_booking
+			{
+				label placement = auto
+			}
+			form service_record
+			{
+				label placement = auto
+			}
+			form spare_parts_inventory
+			{
+				label placement = auto
+			}
+			form vehicle_details
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form customer_details
+			{
+				label placement = auto
+			}
+			form mechanic_details
+			{
+				label placement = auto
+			}
+			form service_billing
+			{
+				label placement = auto
+			}
+			form service_booking
+			{
+				label placement = auto
+			}
+			form service_record
+			{
+				label placement = auto
+			}
+			form spare_parts_inventory
+			{
+				label placement = auto
+			}
+			form vehicle_details
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = green
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
